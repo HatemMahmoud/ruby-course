@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+<html>
+  <head>
+    <title>Introduction to Ruby on Rails</title>
+    <meta charset='utf-8'>
+    <script src='slides.js'></script>
+  </head>
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+  </style>
+  <body style='display: none'>
+    <section class='slides layout-regular template-default'>
+      
+      <article>
+        <img src="images/ruby.jpg" class="small" />
+        <h1>Ruby</h1>
+        <h2>A Programmer's Best Friend</h2>
+        <address>
+          <div class="author_name">Hatem Mahmoud</div>
+          <div>ExpressionLab.com</div>
+        </address>
+      </article>
+      
+      <article>
+        <h3>Agenda</h3>
+        <ul>
+          <li>Philosophy</li>
+          <li>Features</li>
+          <li>Basics</li>
+          <li>Resources</li>
+        </ul>
+      </article>
+      
+      <article>
+        <h1>Philosophy</h1>
+      </article>
+      
+      <article>
+        <img src="images/matz.jpg" class="small avatar" />
+        <h3>History</h3>
+        <p>Designed by<br /><em>Yukihiro Matsumoto, "Matz"</em><br />Japan, 1993</p>
+      </article>
+      
+      <article>
+        <h3>History</h3>
+        <q>I wanted a language that was more powerful than Perl, and more object-oriented than Python</q>
+        <div class="author">Matz</div>
+      </article>
+      
+      <article>
+        <h3>Principles</h3>
+        <p>Follows the principles of good user interface design</p>
+      </article>
+      
+      <article>
+        <h3>1. Principle of Conciseness</h3>
+        <p>Good servants do a lot of work with short orders</p>
+      </article>
+      
+      <article>
+        <h3>2. Principle of Least Surprise</h3>
+        <p>Things work the way a programmer would expect them to</p>
+      </article>
+      
+      <article>
+        <h3>3. Principle of Flexibility</h3>
+        <p>Languages should express,<br /> not restrict, human thought</p>
+      </article>
+      
+      <article>
+        <h1>Features</h1>
+      </article>
+      
+      <article>
+        <h3>Ruby is...</h3>
+        <p>An open source, dynamic,<br />multi-paradigm, interpreted programming language</p>
+      </article>
+      
+      <article>
+        <h3>Open Source</h3>
+        <p>Free software distributed under the GPL or Ruby license</p>
+      </article>
+      
+      <article>
+        <h3>Dynamic</h3>
+        <p>Class, module and method definitions in a program are built at runtime</p>
+      </article>
+      
+      <article>
+        <h3>Dynamic - Metaprogramming</h3>
+        <p>Writing code that<br /> writes code</p>
+      </article>
+      
+      <article>
+        <h3>Dynamic - Monkey Patching</h3>
+        <p>Classes are never closed!<br /> You can always add methods to an existing class</p>
+      </article>
+      
+      <article>
+        <h3>Dynamic - Dynamic Typing</h3>
+        <p>Type checking is performed at runtime</p>
+      </article>
+      
+      <article>
+        <h3>Dynamic - Duck Typing</h3>
+        <p>An object's current set of methods and attributes determines the valid semantics</p>
+      </article>
+      
+      <article>
+        <h3>Dynamic - Duck Typing</h3>
+        <q>If it walks like a duck<br /> and quacks like a duck,<br /> it must be a duck!</q>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm</h3>
+        <p>Doesn't constrain to a single programming mindset</p>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm - Object Oriented</h3>
+        <p>Every value is an object:<br /> classes, numbers, strings, true, false, nil</p>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm - Object Oriented</h3>
+        <p>Every object has a <strong>class</strong> and every class has one <strong>superclass</strong></p>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm - Object Oriented</h3>
+        <p><code>Object</code> is the root of the class hierarchy</p>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm - Procedural</h3>
+        <p>Methods defined outside classes become members of the <code>Object</code> class</p>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm - Functional</h3>
+        <p>Ruby supports<br /> anonymous functions and closures using <strong>blocks</strong></p>
+      </article>
+      
+      <article>
+        <h3>Multi-Paradigm - Reflective</h3>
+        <p>A program can observe its own structure and behavior at runtime</p>
+      </article>
+      
+      <article>
+        <h3>Interpreted</h3>
+        <p>Ruby interpreter examines the source code and executes it on the fly</p>
+      </article>
+      
+      <article>
+        <h1>Basics</h1>
+      </article>
+      
+      <article>
+        <h3>Installation - Windows</h3>
+        <iframe src="http://rubyinstaller.org/"></iframe>
+      </article>
+      
+      <article>
+        <h3>Installation - Unix-like </h3>
+        <iframe src="http://rbenv.org/"></iframe>
+      </article>
+      
+      <article>
+        <h3>Ruby Version</h3>
+        <pre>
+$ ruby -v
+ruby 1.9.3p0 (2011-10-30 revision 33570)
+[x86_64-darwin11.0.0]
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Hello, World!</h3>
+        <section class="build">
+        <pre>
+# hello.rb
+puts 'Hello, World!'
+        </pre>
+        <pre>
+$ ruby hello.rb 
+Hello, World!
+        </pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Interactive Ruby</h3>
+        <section class="build">
+        <pre>
+$ irb
+irb(main):001:0> puts 'Hello, World!'
+Hello, World!
+=> nil
+        </pre>
+        <pre>
+irb(main):002:0> 2 + 3
+=> 5
+        </pre>
+        <pre>
+irb(main):003:0> exit
+        </pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Strings</h3>
+        <pre>
+puts 'What is your name?'
+name = gets()
+puts "Hello #{name}"
+#=> Hello Ruby
+
+puts 'It\'s a string that
+      spans multiple lines.'
+
+title = 'Ruby on Rails'
+letters = title.length #=> 13
+title.downcase! #=> "ruby on rails"
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Numbers</h3>
+        <section class="build">
+        <pre>
+irb(main):001:0> 3.class
+=> Fixnum
+        </pre>
+        <pre>
+irb(main):002:0> 12345678912345678912.class
+=> Bignum
+        </pre>
+        <pre>
+irb(main):003:0> 1.2.class
+=> Float
+        </pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Numbers</h3>
+        <pre>
+irb(main):001:0> Fixnum.superclass
+=> Integer
+irb(main):002:0> Bignum.superclass
+=> Integer
+irb(main):003:0> Integer.superclass
+=> Numeric
+irb(main):004:0> Float.superclass
+=> Numeric
+irb(main):005:0> Numeric.superclass
+=> Object
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Arrays</h3>
+        <pre>
+arr = [3.14, "my string"]
+arr &lt;&lt; 75 #=> [3.14, "my string", 75]
+arr[4] = "R"
+arr #=> [3.14, "my string", 75, nil, "R"]
+arr[-3,2] #=> [75, nil]
+
+x = %w(a b c) #=> ["a", "b", "c"]
+x.delete "b"
+x.length #=> 2
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Ranges</h3>
+        <pre>
+(3..5).to_a #=> [3, 4, 5]
+(3...5).to_a #=> [3, 4]
+("a".."d").to_a #=> ["a", "b", "c", "d"]
+
+digits = 0..9
+digits.include? 5 #=> true
+digits.min #=> 0
+digits.max #=> 9
+digits.each do |digit|
+  dial digit
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Symbols</h3>
+        <pre>
+# The thing called 'country'
+:country.object_id #=> 409448
+:country.object_id #=> 409448
+
+# Two string objects
+'country'.object_id #=> 70217380531580
+'country'.object_id #=> 70217401109340
+
+:country.to_s.object_id #=> 70278520808180
+:country.to_s.object_id #=> 70278520837360
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Hashes</h3>
+        <pre>
+user = { :id => 7, :name => 'Hatem' }
+puts user[:name] #=> Hatem
+
+grades = { "Muhammad" => 23,
+           "Ahmad" => 17,
+           "Hatem" => 49 }
+puts grades.length #=> 3
+puts grades["Hatem"] #=> 49
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Basic Types - Regular Expressions</h3>
+        <pre>
+/hmo/.class
+#=> Regexp
+
+puts 'Hatem Mahmoud'=~/hmo/
+#=> 8
+
+puts 'Hatem Mahmoud'[/hmo.*/]
+#=> "hmoud"
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+irb(main):001:0> def hello
+irb(main):002:1>   puts 'Hello, World!'
+irb(main):003:1> end
+=> nil
+irb(main):004:0> def hello(name)
+irb(main):005:1>   puts "Hello, #{name}!"
+irb(main):006:1> end
+=> nil
+irb(main):007:0> def hello(name='World')
+irb(main):008:1>   puts "Hello, #{name}!"
+irb(main):009:1> end
+=> nil
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <pre>
+irb(main):001:0> class Book
+irb(main):002:1> end
+=> nil
+irb(main):003:0> Book.class
+=> Class
+irb(main):004:0> Book.superclass
+=> Object
+irb(main):005:0> Object.superclass
+=> BasicObject
+irb(main):006:0> BasicObject.superclass
+=> nil
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <pre>
+irb(main):007:0> Class.class
+=> Class
+irb(main):008:0> Class.superclass
+=> Module
+irb(main):009:0> Module.class
+=> Class
+irb(main):010:0> Module.superclass
+=> Object
+irb(main):011:0> Object.class
+=> Class
+irb(main):012:0> Object.superclass
+=> BasicObject
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <pre>
+class Book
+  @@reads = 0
+  def initialize(name, pages)
+    @name = name
+    @pages = pages
+    @reads = 0
+  end
+  
+  def self.reads
+    @@reads
+  end
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <pre>
+class Dictionary &lt; Book
+  def initialize(name, pages, words)
+    super name, pages
+    @words = words
+  end
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <pre>
+irb(main):001:0> class Greeter
+irb(main):002:1>   def initialize(name)
+irb(main):003:2>     @name = name
+irb(main):004:2>   end
+irb(main):005:1>   def say_hi
+irb(main):006:2>     puts "Hi #{@name}!"
+irb(main):007:2>   end
+irb(main):008:1>   def say_bye
+irb(main):009:2>     puts "Bye #{@name}."
+irb(main):010:2>   end
+irb(main):011:1> end
+=> nil
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Objects</h3>
+        <pre>
+irb(main):012:0> g = Greeter.new('Ali')
+=> #&lt;Greeter:0x007f922b05cf98 @name="Ali"&gt;
+irb(main):013:0> g.say_hi
+Hi Ali!
+=> nil
+irb(main):014:0> g.say_bye
+Bye Ali.
+=> nil
+irb(main):015:0> g.@name
+SyntaxError: (irb):15: syntax error
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Instance Methods</h3>
+        <pre>
+irb(main):016:0> Greeter.instance_methods
+=> [:say_hi, :say_bye, :nil?, :===, :=~, :!~, :eql?, :hash, :<=>, :class, :singleton_class, :clone, :dup, :initialize_dup, 
+:initialize_clone, :taint, :tainted?, :untaint, :untrust, :untrusted?, :trust, :freeze, :frozen?, :to_s, :inspect, :methods, 
+:singleton_methods, :protected_methods, :private_methods, :public_methods, :instance_variables, :instance_variable_get, 
+:instance_variable_set, :instance_variable_defined?, :instance_of?, :kind_of?, :is_a?, :tap, :send, :public_send, :respond_to?, 
+:respond_to_missing?, :extend, :display, :method, :public_method, :define_singleton_method, :object_id, :to_enum, :enum_for, :==, 
+:equal?, :!, :!=, :instance_eval, :instance_exec, :__send__, :__id__]
+        </pre>
+        <pre>
+irb(main):017:0> Greeter.instance_methods(false)
+=> [:say_hi, :say_bye]
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Open Classes</h3>
+        <pre>
+irb(main):001:0> class Greeter
+irb(main):002:1>   attr_accessor :name
+irb(main):003:1> end
+=> nil
+irb(main):004:0> Greeter.instance_methods(false)
+=> [:say_hi, :say_bye, :name, :name=]
+irb(main):005:0> g.name
+=> "Ali"
+irb(main):006:0> g.name='Ahmad'
+=> "Ahmad"
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Example</h3>
+        <pre>
+class MegaGreeter
+  attr_accessor :names
+
+  def initialize(names = "World")
+    @names = names
+  end
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Example</h3>
+        <pre>
+class MegaGreeter
+  def say_hi
+    if @names.nil?
+      puts "..."
+    elsif @names.respond_to?("each")
+      @names.each do |name|
+        puts "Hello #{name}!"
+      end
+    else
+      puts "Hello #{@names}!"
+    end
+  end
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Example</h3>
+        <pre>
+class MegaGreeter
+  def say_bye
+    if @names.nil?
+      puts "..."
+    elsif @names.respond_to?("join")
+      puts "Goodbye #{@names.join(", ")}."
+    else
+      puts "Goodbye #{@names}."
+    end
+  end
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Example</h3>
+        <pre>
+mg = MegaGreeter.new
+mg.say_hi #=> Hello World!
+mg.say_bye #=> Goodbye World.
+mg.names = "Z"
+mg.say_hi #=> Hello Z!
+mg.say_bye #=> Goodbye Z.
+mg.names = ["A", "B", "C"]
+mg.say_hi
+#=> Hello A!
+#=> Hello B!
+#=> Hello C!
+mg.say_bye #=> Goodbye A, B, C. 
+mg.names = nil
+mg.say_hi #=> ...
+mg.say_bye #=> ...
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Access Control</h3>
+        <pre>
+class MyClass
+  # always private
+  def initialize; end
+  
+  # public (default)
+  def method1; end
+  
+ protected
+ # for objects of the class and subclasses
+  def method2; end
+ 
+ private
+ # only for the object
+  def method3; end
+end
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Modules - Namespaces</h3>
+        <pre>
+puts Math::PI
+# 3.141592653589793
+
+Kernel.puts 'module method!'
+# module method!
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Modules - Mixins</h3>
+        <pre>
+module MyModule
+  def greet
+    "Hi Ruby!"
+  end
+end
+class MyClass
+  include MyModule
+  def hi
+    puts greet
+  end
+end
+c = MyClass.new
+c.hi #=> "Hi Ruby!"
+puts c.greet #=> "Hi Ruby!"
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Exceptions</h3>
+        <pre>
+begin
+  eval string
+rescue SyntaxError, NameError => e
+  print "String doesn't compile: " + e
+end
+
+begin  
+  puts 'I am before the raise.'  
+  raise 'An error has occured.'  
+rescue  
+  puts 'I am rescued.'  
+end  
+        </pre>
+      </article>
+      
+      <article>
+        <h1>Resources</h1>
+      </article>
+      
+      <article class="full">
+        <img src="images/ruby-lang.png" />
+      </article>
+      
+      <article>
+        <h1>Thank You!</h1>
+        <address>
+          <div class="author_name">Hatem Mahmoud</div>
+          <div>ExpressionLab.com</div>
+        </address>
+      </article>
+    </section>
+  </body>
+</html>

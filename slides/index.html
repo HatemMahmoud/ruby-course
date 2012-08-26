@@ -12,7 +12,7 @@
 -->
 <html>
   <head>
-    <title>Ruby</title>
+    <title>Introduction to Ruby</title>
     <meta charset='utf-8'>
     <script src='slides.js'></script>
   </head>
@@ -24,9 +24,8 @@
     <section class='slides layout-regular template-default'>
       
       <article>
-        <img src="images/ruby.jpg" class="small" />
-        <h1>Ruby</h1>
-        <h2>A Programmer's Best Friend</h2>
+        <img src="images/ruby-logo.png" class="small" />
+        <h1>Introduction to Ruby</h1>
         <address>
           <div class="author_name">Hatem Mahmoud</div>
           <div>ExpressionLab.com</div>
@@ -36,15 +35,17 @@
       <article>
         <h3>Agenda</h3>
         <ul>
+          <li>History</li>
           <li>Philosophy</li>
           <li>Features</li>
+          <li>Installation</li>
           <li>Basics</li>
           <li>Resources</li>
         </ul>
       </article>
       
       <article>
-        <h1>Philosophy</h1>
+        <h1>History</h1>
       </article>
       
       <article>
@@ -60,8 +61,23 @@
       </article>
       
       <article>
+        <h3>History</h3>
+        <q>I always thought Smalltalk would beat Java. I just didn’t know it would be called Ruby when it did</q>
+        <div class="author">Kent Beck</div>
+      </article>
+      
+      <article>
+        <h3>History</h3>
+        <p>The current stable version<br /> 1.9.3 released in October, 2011.</p>
+      </article>
+      
+      <article>
+        <h1>Philosophy</h1>
+      </article>
+      
+      <article>
         <h3>Principles</h3>
-        <p>Follows the principles of good user interface design</p>
+        <p>Designed for programmer productivity and fun,<br /> following the principles of good user interface design</p>
       </article>
       
       <article>
@@ -90,7 +106,7 @@
       
       <article>
         <h3>Open Source</h3>
-        <p>Free software distributed under the GPL or Ruby license</p>
+        <p>Dual-licensed under the Ruby License and a BSD License</p>
       </article>
       
       <article>
@@ -164,17 +180,19 @@
       </article>
       
       <article>
-        <h1>Basics</h1>
+        <h1>Installation</h1>
       </article>
       
-      <article>
-        <h3>Installation - Windows</h3>
-        <iframe src="http://rubyinstaller.org/"></iframe>
+      <article class="full">
+        <img src="images/rvm.png" />
       </article>
       
-      <article>
-        <h3>Installation - Unix-like </h3>
-        <iframe src="http://rbenv.org/"></iframe>
+      <article class="full">
+        <img src="images/rbenv.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/ruby-installer.png" />
       </article>
       
       <article>
@@ -184,6 +202,10 @@ $ ruby -v
 ruby 1.9.3p0 (2011-10-30 revision 33570)
 [x86_64-darwin11.0.0]
         </pre>
+      </article>
+      
+      <article>
+        <h1>Basics</h1>
       </article>
       
       <article>
@@ -220,7 +242,7 @@ irb(main):003:0> exit
       </article>
       
       <article>
-        <h3>Basic Types - Strings</h3>
+        <h3>Datatypes - Strings</h3>
         <pre>
 puts 'What is your name?'
 name = gets()
@@ -237,7 +259,7 @@ title.downcase! #=> "ruby on rails"
       </article>
       
       <article>
-        <h3>Basic Types - Numbers</h3>
+        <h3>Datatypes - Numbers</h3>
         <section class="build">
         <pre>
 irb(main):001:0> 3.class
@@ -255,7 +277,7 @@ irb(main):003:0> 1.2.class
       </article>
       
       <article>
-        <h3>Basic Types - Numbers</h3>
+        <h3>Datatypes - Numbers</h3>
         <pre>
 irb(main):001:0> Fixnum.superclass
 => Integer
@@ -271,7 +293,7 @@ irb(main):005:0> Numeric.superclass
       </article>
       
       <article>
-        <h3>Basic Types - Arrays</h3>
+        <h3>Datatypes - Arrays</h3>
         <pre>
 arr = [3.14, "my string"]
 arr &lt;&lt; 75 #=> [3.14, "my string", 75]
@@ -286,7 +308,7 @@ x.length #=> 2
       </article>
       
       <article>
-        <h3>Basic Types - Ranges</h3>
+        <h3>Datatypes - Ranges</h3>
         <pre>
 (3..5).to_a #=> [3, 4, 5]
 (3...5).to_a #=> [3, 4]
@@ -303,7 +325,7 @@ end
       </article>
       
       <article>
-        <h3>Basic Types - Symbols</h3>
+        <h3>Datatypes - Symbols</h3>
         <pre>
 # The thing called 'country'
 :country.object_id #=> 409448
@@ -319,7 +341,7 @@ end
       </article>
       
       <article>
-        <h3>Basic Types - Hashes</h3>
+        <h3>Datatypes - Hashes</h3>
         <pre>
 user = { :id => 7, :name => 'Hatem' }
 puts user[:name] #=> Hatem
@@ -333,7 +355,7 @@ puts grades["Hatem"] #=> 49
       </article>
       
       <article>
-        <h3>Basic Types - Regular Expressions</h3>
+        <h3>Datatypes - Regular Expressions</h3>
         <pre>
 /hmo/.class
 #=> Regexp
@@ -397,6 +419,11 @@ irb(main):011:0> Object.class
 irb(main):012:0> Object.superclass
 => BasicObject
         </pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <img src="images/ruby-classes.png" style="width: 100%;" />
       </article>
       
       <article>
@@ -581,7 +608,7 @@ class MyClass
   def method2; end
  
  private
- # only for the object
+ # can never be called with an explicit receiver
   def method3; end
 end
         </pre>
@@ -642,6 +669,26 @@ end
       
       <article class="full">
         <img src="images/ruby-lang.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/ruby-doc.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/the-ruby-programming-language.jpg" />
+      </article>
+      
+      <article class="full">
+        <img src="images/try-ruby.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/ruby-toolbox.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/aptana.png" />
       </article>
       
       <article>

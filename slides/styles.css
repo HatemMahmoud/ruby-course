@@ -463,7 +463,7 @@ article.fill img {
 article.full img {
   max-width: 900px;
   max-height: 700px;
-  margin: 0 auto;
+  margin: 20px auto;
   display: block;
 }
 

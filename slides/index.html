@@ -33,7 +33,12 @@
       </article>
       
       <article>
-        <h3>Agenda</h3>
+        <h3>Prerequisites</h3>
+        <p>This course assumes some experience with<br /> object-oriented programming</p>
+      </article>
+      
+      <article>
+        <h3>Outline</h3>
         <ul>
           <li>History</li>
           <li>Philosophy</li>
@@ -145,17 +150,17 @@
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Object Oriented</h3>
+        <h3>Multi-Paradigm - Object-Oriented</h3>
         <p>Every value is an object:<br /> classes, numbers, strings, true, false, nil</p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Object Oriented</h3>
+        <h3>Multi-Paradigm - Object-Oriented</h3>
         <p>Every object has a <strong>class</strong> and every class has one <strong>superclass</strong></p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Object Oriented</h3>
+        <h3>Multi-Paradigm - Object-Oriented</h3>
         <p><code>Object</code> is the root of the class hierarchy</p>
       </article>
       
@@ -308,15 +313,20 @@ irb(main):003:0> 1.2.class
       <article>
         <h3>Datatypes - Arrays</h3>
         <pre>
-arr = [3.14, "my string"]
-arr &lt;&lt; 75 #=> [3.14, "my string", 75]
-arr[4] = "R"
-arr #=> [3.14, "my string", 75, nil, "R"]
-arr[-3,2] #=> [75, nil]
+a = [3.14, "my string"]
+a &lt;&lt; 75 #=> [3.14, "my string", 75]
+a[4] = "R"
+a #=> [3.14, "my string", 75, nil, "R"]
+a[-3,2] #=> [75, nil]
 
-x = %w(a b c) #=> ["a", "b", "c"]
-x.delete "b"
-x.length #=> 2
+r = %w(Ruby on Rails) #=> ["Ruby", "on", "Rails"]
+r.delete "on"
+r.join(', ') #=> "Ruby, Rails"
+
+n = [1, 2, 3]
+n.map { |x| x*2 } #=> [2, 4, 6]
+
+[].empty? #=> true
         </pre>
       </article>
       
@@ -356,28 +366,28 @@ end
       <article>
         <h3>Datatypes - Hashes</h3>
         <pre>
-user = { :id => 7, :name => 'Hatem' }
-puts user[:name] #=> Hatem
+user = { :id => 3, :name => "Hatem" }
+puts user[:id] #=> 3
 
-grades = { "Muhammad" => 23,
-           "Ahmad" => 17,
-           "Hatem" => 49 }
-puts grades.length #=> 3
-puts grades["Hatem"] #=> 49
+user = { id: 3, name: "Hatem" }
+puts user[:id] #=> 3
+
+grades = { "Ruby" => 49, "Rails" => 35 }
+puts grades["Ruby"] #=> 49
         </pre>
       </article>
       
       <article>
         <h3>Datatypes - Regular Expressions</h3>
         <pre>
-/hmo/.class
+/any_string/.class
 #=> Regexp
 
-puts 'Hatem Mahmoud'=~/hmo/
-#=> 8
+puts 'Ruby on Rails'=~/on/
+#=> 5
 
-puts 'Hatem Mahmoud'[/hmo.*/]
-#=> "hmoud"
+puts 'Ruby on Rails'[/on.*/]
+#=> on Rails
         </pre>
       </article>
       

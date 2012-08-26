@@ -195,6 +195,22 @@
         <img src="images/ruby-installer.png" />
       </article>
       
+      <article class="full">
+        <img src="images/jruby.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/iron-ruby.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/rubinius.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/mac-ruby.png" />
+      </article>
+      
       <article>
         <h3>Ruby Version</h3>
         <pre>
@@ -209,15 +225,19 @@ ruby 1.9.3p0 (2011-10-30 revision 33570)
       </article>
       
       <article>
-        <h3>Hello, World!</h3>
+        <h3>Hello, world!</h3>
         <section class="build">
+          <pre>
+$ ruby -e 'puts "Hello, world!"'
+Hello, world!
+          </pre>
         <pre>
 # hello.rb
-puts 'Hello, World!'
+puts 'Hello, world!'
         </pre>
         <pre>
 $ ruby hello.rb 
-Hello, World!
+Hello, world!
         </pre>
         </section>
       </article>
@@ -227,8 +247,8 @@ Hello, World!
         <section class="build">
         <pre>
 $ irb
-irb(main):001:0> puts 'Hello, World!'
-Hello, World!
+irb(main):001:0> puts 'Hello, world!'
+Hello, world!
 => nil
         </pre>
         <pre>
@@ -374,14 +394,14 @@ puts 'Hatem Mahmoud'[/hmo.*/]
         <h3>Methods</h3>
         <pre>
 irb(main):001:0> def hello
-irb(main):002:1>   puts 'Hello, World!'
+irb(main):002:1>   puts 'Hello, world!'
 irb(main):003:1> end
 => nil
 irb(main):004:0> def hello(name)
 irb(main):005:1>   puts "Hello, #{name}!"
 irb(main):006:1> end
 => nil
-irb(main):007:0> def hello(name='World')
+irb(main):007:0> def hello(name='world')
 irb(main):008:1>   puts "Hello, #{name}!"
 irb(main):009:1> end
 => nil

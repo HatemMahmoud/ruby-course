@@ -257,6 +257,7 @@ irb(main):002:0> 2 + 3
         </pre>
         <pre>
 irb(main):003:0> exit
+$
         </pre>
         </section>
       </article>
@@ -274,9 +275,10 @@ puts 'It\'s a string that
 language = 'Ruby'
 language.downcase #=> "ruby"
 language #=> "Ruby"
-
 language.downcase! #=> "ruby"
 language #=> "ruby"
+
+sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
         </pre>
       </article>
       
@@ -300,18 +302,7 @@ irb(main):003:0> 1.2.class
       
       <article>
         <h3>Datatypes - Numbers</h3>
-        <pre>
-irb(main):001:0> Fixnum.superclass
-=> Integer
-irb(main):002:0> Bignum.superclass
-=> Integer
-irb(main):003:0> Integer.superclass
-=> Numeric
-irb(main):004:0> Float.superclass
-=> Numeric
-irb(main):005:0> Numeric.superclass
-=> Object
-        </pre>
+        <img src="images/numeric.png" class="large" style="margin-top: 50px;" />
       </article>
       
       <article>
@@ -551,7 +542,7 @@ irb(main):023:0> g.name='Ahmad'
 class MegaGreeter
   attr_accessor :names
 
-  def initialize(names = "World")
+  def initialize(names = nil)
     @names = names
   end
 end
@@ -598,20 +589,16 @@ end
         <h3>Example</h3>
         <pre>
 mg = MegaGreeter.new
-mg.say_hi #=> Hello World!
-mg.say_bye #=> Goodbye World.
-mg.names = "Z"
-mg.say_hi #=> Hello Z!
-mg.say_bye #=> Goodbye Z.
-mg.names = ["A", "B", "C"]
-mg.say_hi
-#=> Hello A!
-#=> Hello B!
-#=> Hello C!
-mg.say_bye #=> Goodbye A, B, C. 
-mg.names = nil
 mg.say_hi #=> ...
 mg.say_bye #=> ...
+mg.names = "Ruby"
+mg.say_hi #=> Hello Ruby!
+mg.say_bye #=> Goodbye Ruby.
+mg.names = ['Ruby', 'Rails']
+mg.say_hi
+#=> Hello Ruby!
+#=> Hello Rails!
+mg.say_bye #=> Goodbye Ruby, Rails. 
         </pre>
       </article>
       

@@ -369,13 +369,13 @@ ul ul {
 }
 li {
   font-size: 45px;
-  line-height: 60px;
+  line-height: 50px;
   padding: 0;
   margin: 0;
   margin-bottom: .5em;
 }
 ul.small li {
-  font-size: 25px;
+  font-size: 28px;
   line-height: 40px;
 }
 ul li::before {

@@ -245,16 +245,18 @@ irb(main):003:0> exit
         <h3>Datatypes - Strings</h3>
         <pre>
 puts 'What is your name?'
-name = gets()
-puts "Hello #{name}"
-#=> Hello Ruby
+name = gets
+puts "Hello #{name}" #=> Hello Ruby
 
 puts 'It\'s a string that
       spans multiple lines.'
 
-title = 'Ruby on Rails'
-letters = title.length #=> 13
-title.downcase! #=> "ruby on rails"
+language = 'Ruby'
+language.downcase #=> "ruby"
+language #=> "Ruby"
+
+language.downcase! #=> "ruby"
+language #=> "ruby"
         </pre>
       </article>
       
@@ -510,15 +512,15 @@ irb(main):017:0> Greeter.instance_methods(false)
       <article>
         <h3>Open Classes</h3>
         <pre>
-irb(main):001:0> class Greeter
-irb(main):002:1>   attr_accessor :name
-irb(main):003:1> end
+irb(main):018:0> class Greeter
+irb(main):019:1>   attr_accessor :name
+irb(main):020:1> end
 => nil
-irb(main):004:0> Greeter.instance_methods(false)
+irb(main):021:0> Greeter.instance_methods(false)
 => [:say_hi, :say_bye, :name, :name=]
-irb(main):005:0> g.name
+irb(main):022:0> g.name
 => "Ali"
-irb(main):006:0> g.name='Ahmad'
+irb(main):023:0> g.name='Ahmad'
 => "Ahmad"
         </pre>
       </article>
@@ -675,8 +677,12 @@ end
         <img src="images/ruby-doc.png" />
       </article>
       
-      <article class="full">
-        <img src="images/the-ruby-programming-language.jpg" />
+      <article>
+        <img src="images/the-ruby-programming-language.jpg" class="xlarge" />
+      </article>
+      
+      <article>
+        <img src="images/programming-ruby-19.jpg" class="xlarge" />
       </article>
       
       <article class="full">
@@ -688,7 +694,7 @@ end
       </article>
       
       <article class="full">
-        <img src="images/aptana.png" />
+        <img src="images/aptana-studio.png" />
       </article>
       
       <article>

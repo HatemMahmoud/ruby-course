@@ -292,16 +292,16 @@ sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
         <h3>Datatypes - Numbers</h3>
         <section class="build">
         <pre>
-irb(main):001:0> 3.class
-=> Fixnum
+3.times { puts 'Hello, world!' }
         </pre>
         <pre>
-irb(main):002:0> 12345678912345678912.class
-=> Bignum
+3.class #=> Fixnum
         </pre>
         <pre>
-irb(main):003:0> 1.2.class
-=> Float
+12345678912345678912.class #=> Bignum
+        </pre>
+        <pre>
+1.2.class #=> Float
         </pre>
         </section>
       </article>
@@ -340,12 +340,15 @@ n.map { |x| x*2 } #=> [2, 4, 6]
 
 digits = 0..9
 digits.include? 5 #=> true
-digits.min #=> 0
 digits.max #=> 9
-digits.each do |digit|
-  dial digit
+digits.each { |d| print d } #=> 0123456789
+digits.step(4) { |d| print d } #=> 048
+
+case 79
+  when 1..50   then print 'low'
+  when 51..100 then print 'high'
 end
-        </pre>
+#=> high</pre>
       </article>
       
       <article>

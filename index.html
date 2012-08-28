@@ -252,19 +252,18 @@ Hello, world!
         <h3>Interactive Ruby</h3>
         <section class="build">
         <pre>
+$ irb --help</pre>
+        <pre>
 $ irb
 irb(main):001:0> puts 'Hello, world!'
 Hello, world!
-=> nil
-        </pre>
+=> nil</pre>
         <pre>
 irb(main):002:0> 2 + 3
-=> 5
-        </pre>
+=> 5</pre>
         <pre>
 irb(main):003:0> exit
-$
-        </pre>
+$</pre>
         </section>
       </article>
       
@@ -273,16 +272,16 @@ $
         <pre>
 puts 'What is your name?'
 name = gets
-puts "Hello #{name}" #=> Hello Ruby
+puts "Hello, #{name}!" #=> Hello, Ruby!
 
 puts 'It\'s a string that
       spans multiple lines.'
 
 language = 'Ruby'
-language.downcase #=> "ruby"
-language #=> "Ruby"
-language.downcase! #=> "ruby"
-language #=> "ruby"
+puts language.downcase #=> "ruby"
+puts language #=> "Ruby"
+language.downcase!
+puts language #=> "ruby"
 
 sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
         </pre>
@@ -292,17 +291,17 @@ sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
         <h3>Datatypes - Numbers</h3>
         <section class="build">
         <pre>
-3.times { puts 'Hello, world!' }
-        </pre>
+5.times { puts 'Hello, world!' }
+
+3.upto(10) do |n|
+  puts n
+end</pre>
         <pre>
-3.class #=> Fixnum
-        </pre>
+3.class #=> Fixnum</pre>
         <pre>
-12345678912345678912.class #=> Bignum
-        </pre>
+12345678912345678912.class #=> Bignum</pre>
         <pre>
-1.2.class #=> Float
-        </pre>
+1.2.class #=> Float</pre>
         </section>
       </article>
       
@@ -371,10 +370,13 @@ end
         <h3>Datatypes - Hashes</h3>
         <pre>
 user = { :id => 3, :name => "Hatem" }
-puts user[:id] #=> 3
 
 user = { id: 3, name: "Hatem" }
+
 puts user[:id] #=> 3
+
+user.keys #=> [:id, :name]
+user.each { |k, v| puts "#{k} is #{v}" }
 
 grades = { "Ruby" => 49, "Rails" => 35 }
 puts grades["Ruby"] #=> 49
@@ -398,59 +400,18 @@ puts 'Ruby on Rails'[/on.*/]
       <article>
         <h3>Methods</h3>
         <pre>
-irb(main):001:0> def hello
-irb(main):002:1>   puts 'Hello, world!'
-irb(main):003:1> end
-=> nil
-irb(main):004:0> def hello(name)
-irb(main):005:1>   puts "Hello, #{name}!"
-irb(main):006:1> end
-=> nil
-irb(main):007:0> def hello(name='world')
-irb(main):008:1>   puts "Hello, #{name}!"
-irb(main):009:1> end
-=> nil
+def hello
+  puts 'Hello, world!'
+end
+
+def hello(name)
+  puts "Hello, #{name}!"
+end
+
+def hello(name='world')
+  puts "Hello, #{name}!"
+end
         </pre>
-      </article>
-      
-      <article>
-        <h3>Classes</h3>
-        <pre>
-irb(main):001:0> class Book
-irb(main):002:1> end
-=> nil
-irb(main):003:0> Book.class
-=> Class
-irb(main):004:0> Book.superclass
-=> Object
-irb(main):005:0> Object.superclass
-=> BasicObject
-irb(main):006:0> BasicObject.superclass
-=> nil
-        </pre>
-      </article>
-      
-      <article>
-        <h3>Classes</h3>
-        <pre>
-irb(main):007:0> Class.class
-=> Class
-irb(main):008:0> Class.superclass
-=> Module
-irb(main):009:0> Module.class
-=> Class
-irb(main):010:0> Module.superclass
-=> Object
-irb(main):011:0> Object.class
-=> Class
-irb(main):012:0> Object.superclass
-=> BasicObject
-        </pre>
-      </article>
-      
-      <article>
-        <h3>Classes</h3>
-        <img src="images/ruby-classes.png" style="width: 100%;" />
       </article>
       
       <article>
@@ -459,28 +420,44 @@ irb(main):012:0> Object.superclass
 class Book
   @@reads = 0
   def initialize(name, pages)
-    @name = name
-    @pages = pages
-    @reads = 0
+    @name, @pages, @reads = name, pages, 0
   end
-  
   def self.reads
     @@reads
   end
 end
-        </pre>
-      </article>
-      
-      <article>
-        <h3>Classes</h3>
-        <pre>
+
 class Dictionary &lt; Book
   def initialize(name, pages, words)
     super name, pages
     @words = words
   end
-end
-        </pre>
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <pre>
+Book.class #=> Class
+Book.superclass #=> Object
+Class.class #=> Class
+Class.superclass #=> Module
+Module.class #=> Class
+Module.superclass #=> Object
+Object.class #=> Class
+Object.superclass #=> BasicObject
+BasicObject.class #=> Class
+BasicObject.superclass #=> nil
+
+nil.class #=> NilClass
+nil.superclass #=> NoMethodError: undefined method `superclass' for nil:NilClass
+NilClass.class #=> Class
+NilClass.superclass #=> Object</pre>
+      </article>
+      
+      <article>
+        <h3>Classes</h3>
+        <img src="images/ruby-classes.png" style="width: 100%;" />
       </article>
       
       <article>
@@ -569,8 +546,8 @@ end
 class MegaGreeter
   def say_hi
     if @names.nil?
-      puts "..."
-    elsif @names.respond_to?("each")
+      puts '...'
+    elsif @names.respond_to?('each')
       @names.each do |name|
         puts "Hello #{name}!"
       end
@@ -588,9 +565,9 @@ end
 class MegaGreeter
   def say_bye
     if @names.nil?
-      puts "..."
-    elsif @names.respond_to?("join")
-      puts "Goodbye #{@names.join(", ")}."
+      puts '...'
+    elsif @names.respond_to?('join')
+      puts "Goodbye #{@names.join(', ')}."
     else
       puts "Goodbye #{@names}."
     end
@@ -605,7 +582,7 @@ end
 mg = MegaGreeter.new
 mg.say_hi #=> ...
 mg.say_bye #=> ...
-mg.names = "Ruby"
+mg.names = 'Ruby'
 mg.say_hi #=> Hello Ruby!
 mg.say_bye #=> Goodbye Ruby.
 mg.names = ['Ruby', 'Rails']

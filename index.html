@@ -630,8 +630,7 @@ class MyClass
  private
  # can never be called with an explicit receiver
   def method3; end
-end
-        </pre>
+end</pre>
       </article>
       
       <article>
@@ -669,14 +668,14 @@ puts c.greet #=> "Hi Ruby!"
         <h3>Exceptions</h3>
         <pre>
 begin
-  eval string
+  eval my_string
 rescue SyntaxError, NameError => e
-  print "String doesn't compile: " + e
+  puts "String doesn't compile: " + e
 end
 
 begin  
   puts 'I am before the raise.'  
-  raise 'An error has occured.'  
+  raise 'An error has occured!'  
 rescue  
   puts 'I am rescued.'  
 end  

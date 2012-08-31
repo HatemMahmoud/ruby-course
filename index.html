@@ -39,12 +39,18 @@
       
       <article>
         <h3>Outline</h3>
-        <ul>
+        <ul style="float: left; width: 450px;">
           <li>History</li>
           <li>Philosophy</li>
           <li>Features</li>
+          <li>Implementations</li>
           <li>Installation</li>
-          <li>Basics</li>
+          <li>Hello!</li>
+        </ul>
+        <ul>
+          <li>Datatypes</li>
+          <li>Expressions</li>
+          <li>Classes</li>
           <li>Resources</li>
           <li>Assignments</li>
         </ul>
@@ -83,7 +89,7 @@
       
       <article>
         <h3>Principles</h3>
-        <p>Designed for programmer productivity and fun,<br /> following the principles of good user interface design</p>
+        <p>Designed to make programmers happy,<br /> following the principles of<br /> good user interface design</p>
       </article>
       
       <article>
@@ -186,19 +192,11 @@
       </article>
       
       <article>
-        <h1>Installation</h1>
+        <h1>Implementations</h1>
       </article>
       
       <article class="full">
-        <img src="images/rvm.png" />
-      </article>
-      
-      <article class="full">
-        <img src="images/rbenv.png" />
-      </article>
-      
-      <article class="full">
-        <img src="images/ruby-installer.png" />
+        <img src="images/ruby-lang.png" />
       </article>
       
       <article class="full">
@@ -218,6 +216,22 @@
       </article>
       
       <article>
+        <h1>Installation</h1>
+      </article>
+      
+      <article class="full">
+        <img src="images/rvm.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/rbenv.png" />
+      </article>
+      
+      <article class="full">
+        <img src="images/ruby-installer.png" />
+      </article>
+      
+      <article>
         <h3>Ruby Version</h3>
         <pre>
 $ ruby -v
@@ -227,7 +241,7 @@ ruby 1.9.3p0 (2011-10-30 revision 33570)
       </article>
       
       <article>
-        <h1>Basics</h1>
+        <h1>Hello!</h1>
       </article>
       
       <article>
@@ -268,12 +282,17 @@ $</pre>
       </article>
       
       <article>
-        <h3>Datatypes - Strings</h3>
+        <h1>Datatypes</h1>
+      </article>
+      
+      <article>
+        <h3>Strings</h3>
         <pre>
 puts 'What is your name?'
 name = gets
-puts "Hello, #{name}!" #=> Hello, Ruby!
+print 'Hello' << ', ' << "#{name}" #=> Hello, Ruby
 
+puts '*' * 7 #=> "*******"
 puts 'It\'s a string that
       spans multiple lines.'
 
@@ -288,7 +307,7 @@ sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
       </article>
       
       <article>
-        <h3>Datatypes - Numbers</h3>
+        <h3>Numbers</h3>
         <section class="build">
         <pre>
 5.times { puts 'Hello, world!' }
@@ -297,21 +316,24 @@ sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
   puts n
 end</pre>
         <pre>
-3.class #=> Fixnum</pre>
-        <pre>
-12345678912345678912.class #=> Bignum</pre>
-        <pre>
+3.class #=> Fixnum
+12345678912345678912.class #=> Bignum
 1.2.class #=> Float</pre>
+<pre>
+0377           # Octal 255
+0b1111_1111    # Binary 255
+0xFF           # Hexadecimal 255
+</pre>
         </section>
       </article>
       
       <article>
-        <h3>Datatypes - Numbers</h3>
+        <h3>Numbers</h3>
         <img src="images/numeric.png" class="large" style="margin-top: 50px;" />
       </article>
       
       <article>
-        <h3>Datatypes - Arrays</h3>
+        <h3>Arrays</h3>
         <pre>
 a = [3.14, "my string"]
 a &lt;&lt; 75 #=> [3.14, "my string", 75]
@@ -331,7 +353,7 @@ n.map { |x| x*2 } #=> [2, 4, 6]
       </article>
       
       <article>
-        <h3>Datatypes - Ranges</h3>
+        <h3>Ranges</h3>
         <pre>
 (3..5).to_a #=> [3, 4, 5]
 (3...5).to_a #=> [3, 4]
@@ -351,7 +373,7 @@ end
       </article>
       
       <article>
-        <h3>Datatypes - Symbols</h3>
+        <h3>Symbols</h3>
         <pre>
 # The thing called 'country'
 :country.object_id #=> 409448
@@ -367,7 +389,7 @@ end
       </article>
       
       <article>
-        <h3>Datatypes - Hashes</h3>
+        <h3>Hashes</h3>
         <pre>
 user = { :id => 3, :name => "Hatem" }
 
@@ -384,7 +406,7 @@ puts grades["Ruby"] #=> 49
       </article>
       
       <article>
-        <h3>Datatypes - Regular Expressions</h3>
+        <h3>Regular Expressions</h3>
         <pre>
 /any_string/.class
 #=> Regexp
@@ -398,21 +420,96 @@ puts 'Ruby on Rails'[/on.*/]
       </article>
       
       <article>
+        <h3>True, False, Nil</h3>
+        <pre>
+true.class  #=> TrueClass (a singleton instance)
+
+false.class #=> FalseClass (a singleton instance)
+
+nil.class   #=> NilClass (a singleton instance)
+        </pre>
+      </article>
+      
+      <article>
+        <h1>Expressions</h1>
+      </article>
+      
+      <article>
+        <h3>Identifiers</h3>
+        <pre>
+PI              # Constant
+
+$files          # Global variable
+
+@data           # Instance variable
+
+@@counter       # Class variable
+
+empty?          # Method returns a Boolean value
+
+sort!           # Method requires more caution 
+
+timeout=        # Method invoked by assignment
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Assignments</h3>
+        <pre>
+x = 1         # Simple assignment
+
+x += 1        # Abbreviated assignment
+x ||= y       # x = x || y
+
+
+x,y,z = 1,2,3 # Parallel assignment
+
+x = y = 0     # Two simple assignments, chained
+
+N = 1         # constants are not really constant
+N = 2         # Warning
+        </pre>
+      </article>
+      
+      <article>
+        <h3>Operators</h3>
+        <pre>
+2 * Math.sqrt(2) &lt; limit
+
+a = "Ruby"      # One String object
+b = "Ruby"      # Another String object
+a.equal?(b)     # false; different objects
+a == b          # true; equal values
+a != b          # false
+
+'Ruby'=~/by/    # 2
+
+x == 0 && y > 1 # Boolean AND
+x == 0 || y < 0 # Boolean OR
+
+max = x > y ? x : y # Conditiona</pre>
+      </article>
+      
+      <article>
+        <h1>Classes</h1>
+      </article>
+      
+      <article>
         <h3>Methods</h3>
         <pre>
 def hello
   puts 'Hello, world!'
 end
 
-def hello(name='world')
-  puts "Hello, #{name}!"
+def square(x)
+  x*x
 end
 
-def hello(name, *other_values)
-  puts other_values
+def hello(id, name='world', *other_values)
+  puts "Hello, #{id}-#{name}!", other_values
 end
 
-hello 'Ruby', 1.9, 'Programming', [1,2]
+hello 7, 'Ruby', 1.9, 'Programming', [1,2]
         </pre>
       </article>
       

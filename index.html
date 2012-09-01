@@ -46,14 +46,16 @@
           <li>Implementations</li>
           <li>Installation</li>
           <li>Hello, World!</li>
+          <li>Datatypes</li>
         </ul>
         <ul>
-          <li>Datatypes</li>
           <li>Expressions</li>
           <li>Control Flow</li>
+          <li>Methods</li>
+          <li>Procs</li>
+          <li>Closures</li>
           <li>Classes</li>
           <li>Resources</li>
-          <li>Assignments</li>
         </ul>
       </article>
       
@@ -619,8 +621,9 @@ end</pre>
       <article>
         <h3>Iterators</h3>
         <pre>
+# An iterator is a method that expects a block
 def sequence(n, x)
-  i= 0
+  i = 0
   while(i < n)
     yield x*i
     i += 1
@@ -772,26 +775,198 @@ f.resume               # Line 10: goto line 4</pre>
       </article>
       
       <article>
-        <h1>Classes</h1>
+        <h1>Methods</h1>
       </article>
       
       <article>
         <h3>Methods</h3>
         <pre>
+def sum x, y
+  x + y
+end
+
+x.between? 1, 5 # x.between?(1, 5)
+
+def max(first, *rest)
+  max = first
+  rest.each { |x| max = x if x > max }
+  max
+end
+
+def append(x, a=[])
+  a << x
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+m = "message"
+def m.printme # Singleton method
+  puts self
+end
+m.printme</pre>
+        <pre>
 def hello
-  puts 'Hello, world!'
+  puts "Hello World"
+end
+alias greeting hello</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def factorial(n)
+  raise "bad argument" if n < 1
+  return 1 if n == 1
+  n * factorial(n-1)
 end
 
-def square(x)
-  x*x
+def split_string(string)
+  splitted = string.split(' ')
+  return splitted[0], splitted[1]
+end
+fname, lname = split_string('Hatem Mahmoud')</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def sequence(n, x)
+  i = 0
+  while(i < n)
+    yield x*i # Pass next element to the block
+    i += 1
+  end
 end
 
-def hello(id, name='world', *other_values)
-  puts "Hello, #{id}-#{name}!", other_values
+sequence(3, 5) { |e| puts e }
+</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+# Explicit argument to get block as a Proc
+def sequence(n, x, &b)
+  i = 0
+  while(i < n)
+    b.call x*i # Invoke the Proc
+    i += 1
+  end
 end
 
-hello 7, 'Ruby', 1.9, 'Programming', [1,2]
-        </pre>
+sequence(3, 5) { |e| puts e }</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def sequence(n, x, b)
+i = 0
+  while(i < n)
+    b.call x*i # Invoke the Proc
+    i += 1
+  end
+end
+
+p = Proc.new { |x| puts x }
+sequence(3, 5, p) # Explicitly pass a Proc object</pre>
+      </article>
+      
+      <article>
+        <h1>Procs</h1>
+      </article>
+      
+      <article>
+        <h3>Procs</h3>
+        <pre>
+# A proc is the object form of a block
+adder = Proc.new { |x,y| x+y }
+sum = adder.call(2, 3)</pre>
+        <pre>
+def makeproc(&p)
+  p # block converted to a Proc may be passed around
+end
+adder = makeproc { |x,y| x+y }
+sum = adder.call(2, 3)</pre>
+        <pre>
+# Create a Proc using Kernel.lambda
+adder = lambda { |x,y| x+y }
+sum = adder.call(2, 3)</pre>
+      </article>
+      
+      <article>
+        <h3>Procs</h3>
+        <pre>
+# A proc behaves like a block
+p = Proc.new { |x,y| print x,y }
+p.call(3) # x,y = 1</pre>
+        <pre>
+# A lambda behaves like a method
+l = lambda { |x,y| print x,y }
+l.call(3) # wrong number of arguments</pre>
+      </article>
+      
+      <article>
+        <h3>Procs</h3>
+        <pre>
+# A proc behaves like a block
+def test
+  p = Proc.new { puts "entering proc"; return }
+  p.call
+  puts "exiting method"  # This is never executed
+end</pre>
+        <pre>
+# A lambda behaves like a method
+def test
+  p = lambda { puts "entering lambda"; return }
+  p.call
+  puts "exiting method"  # This is executed now
+end</pre>
+      </article>
+      
+      <article>
+        <h1>Closures</h1>
+      </article>
+      
+      <article>
+        <h3>Closures</h3>
+        <pre>
+# blocks can use variables defined outside
+def multiply(data, n)
+  data.collect { |x| x*n }
+end
+puts multiply([1,2,3], 2)   # Prints 2,4,6</pre>
+        <pre>
+# a closure, proc or lambda, holds the block
+# and bindings for all the variables used by it
+def multiplier(n)
+  lambda { |data| data.collect { |x| x*n } }
+end
+doubler = multiplier(2)
+puts doubler.call([1,2,3])  # Prints 2,4,6</pre>
+      </article>
+      
+      <article>
+        <h3>Closures</h3>
+        <pre>
+# Return a pair of lambdas that share access to a local variable.
+def accessor_pair(initialValue=nil)
+  value = initialValue  # shared by lambdas.
+  getter = lambda { value }  # Return value of local variable.
+  setter = lambda { |x| value = x }  # Change value of local variable.
+  return getter, setter # Return pair of lambdas.
+end
+
+getX, setX = accessor_pair(0)
+puts getX[] # Prints 0.
+setX[10]    # setX.call(10)
+puts getX[] # Prints 10.</pre>
+      </article>
+      
+      <article>
+        <h1>Classes</h1>
       </article>
       
       <article>

@@ -305,8 +305,7 @@ puts language #=> "Ruby"
 language.downcase!
 puts language #=> "ruby"
 
-sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"
-        </pre>
+sprintf("pi is about %.4f", Math::PI) # "pi is about 3.1416"</pre>
       </article>
       
       <article>
@@ -325,8 +324,7 @@ end</pre>
 <pre>
 0377           # Octal 255
 0b1111_1111    # Binary 255
-0xFF           # Hexadecimal 255
-</pre>
+0xFF           # Hexadecimal 255</pre>
         </section>
       </article>
       
@@ -351,8 +349,20 @@ r.join(', ') #=> "Ruby, Rails"
 n = [1, 2, 3]
 n.map { |x| x*2 } #=> [2, 4, 6]
 
-[].empty? #=> true
-        </pre>
+[].empty? #=> true</pre>
+      </article>
+      
+      <article>
+        <h3>Arrays</h3>
+        <pre>
+cities = %w[London Oslo Paris Amsterdam Berlin]
+visited = %w[Berlin Oslo]
+puts "I still need to visit:", cities - visited</pre>
+        <pre>
+I still need to visit:
+London
+Paris
+Amsterdam</pre>
       </article>
       
       <article>

@@ -1184,23 +1184,107 @@ mg.say_bye #=> Goodbye Ruby, Rails.
       </article>
       
       <article>
-        <h3>Access Control</h3>
+        <h3>Method Visibility</h3>
         <pre>
+def my_method; end # private method of Object
+
 class MyClass
-  # always private
-  def initialize; end
+  def initialize; end # always private
   
-  # public (default)
-  def method1; end
+  def method1; end # public by default
   
  protected
- # for objects of the class and subclasses
   def method2; end
- 
- private
- # can never be called with an explicit receiver
   def method3; end
+  
+ private
+  def method4; end
 end</pre>
+      </article>
+      
+      <article>
+        <h3>Method Visibility</h3>
+        <pre>
+class MyClass
+  
+ protected
+ 
+  # may be explicitly invoked on any instance.
+  # can only be called by other instance methods
+  # of the class or its subclasses.
+  
+  def my_method
+  end
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Method Visibility</h3>
+        <pre>
+class MyClass
+  
+ private
+ 
+  # may not be explicitly invoked on an object.
+  # may be implicitly invoked on self.
+  # can only be called by other instance methods
+  # of the class or its subclasses.
+  
+  def my_method
+  end
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Method Visibility</h3>
+        <pre>
+object = MyClass.new
+object.public_method    # allowed
+object.protected_method # not allowed
+object.private_method   # not allowed
+
+class SubClass < MyClass
+  def invoke_protected(object)
+    object.protected_method  # allowed
+  end
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Method Visibility</h3>
+        <pre>
+class A
+  def public_method
+    method1
+  end
+  
+ private
+  def method1
+    puts "Hello from #{self.class}"
+  end
+end
+
+A.new.public_method  # Hello from A</pre>
+      </article>
+      
+      <article>
+        <h3>Method Visibility</h3>
+        <pre>
+class B < A
+  def public_method
+    method1
+  end
+end
+
+B.new.public_method  # Hello from B
+
+class C < A
+  def public_method
+    self.method1
+  end
+end
+
+C.new.public_method  # NoMethodError</pre>
       </article>
       
       <article>

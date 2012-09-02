@@ -678,15 +678,6 @@ while(i < 3) # Prints "0123" instead of "012"
   i += 1
   redo if i == 3
 end</pre>
-        <pre>
-n = 10
-n.times do |x|
-  print x
-  if x == 9
-    n -= 1
-    retry
-  end
-end</pre>
       </article>
       
       <article>
@@ -768,10 +759,10 @@ f.resume               # Line  8: goto line 2
 puts "Caller Goodbye"  # Line  9:
 f.resume               # Line 10: goto line 4</pre>
         <pre>
-#=> Caller says Hello
-#=> Fiber says Hello
-#=> Caller says Goodbye
-#=> Fiber says Goodbye</pre>
+#=> Caller Hello
+#=> Fiber Hello
+#=> Caller Goodbye
+#=> Fiber Goodbye</pre>
       </article>
       
       <article>
@@ -805,7 +796,7 @@ m = "message"
 def m.printme # Singleton method
   puts self
 end
-m.printme</pre>
+m.printme     # message</pre>
         <pre>
 def hello
   puts "Hello World"
@@ -1288,7 +1279,7 @@ C.new.public_method  # NoMethodError</pre>
       </article>
       
       <article>
-        <h3>Modules - Namespaces</h3>
+        <h3>Modules as Namespaces</h3>
         <pre>
 puts Math::PI
 # 3.141592653589793
@@ -1299,7 +1290,7 @@ Kernel.puts 'module method!'
       </article>
       
       <article>
-        <h3>Modules - Mixins</h3>
+        <h3>Modules as Mixins</h3>
         <pre>
 module MyModule
   def greet

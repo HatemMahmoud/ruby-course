@@ -500,7 +500,7 @@ a != b          # false
 x == 0 && y > 1 # Boolean AND
 x == 0 || y < 0 # Boolean OR
 
-max = x > y ? x : y # Conditiona</pre>
+max = x > y ? x : y # Conditional</pre>
       </article>
       
       <article>
@@ -1338,6 +1338,27 @@ r = Roman.new
 r.iv      #=> 4
 r.xxiii   #=> 23
 r.mm      #=> 2000</pre>
+      </article>
+      
+      <article>
+        <h3>DSL (Domain-Specific Language)</h3>
+        <pre>
+pagetitle = "Test Page for XML.generate"
+XML.generate(STDOUT) do
+  html do
+    head do
+      title { pagetitle }
+      comment "This is a test"
+    end
+    body do
+      h1(:style => "font-family:sans-serif") { pagetitle }
+      ul :type=>"square" do
+        li { Time.now }
+        li { RUBY_VERSION }
+      end
+    end
+  end
+end</pre>
       </article>
       
       <article>

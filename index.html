@@ -55,7 +55,7 @@
           <li>Procs</li>
           <li>Closures</li>
           <li>Classes</li>
-          <li>Resources</li>
+          <li>Metaprogramming</li>
         </ul>
       </article>
       
@@ -1119,72 +1119,6 @@ NilClass.superclass #=> Object</pre>
       </article>
       
       <article>
-        <h3>Example</h3>
-        <pre>
-class MegaGreeter
-  attr_accessor :names
-
-  def initialize(names = nil)
-    @names = names
-  end
-end
-        </pre>
-      </article>
-      
-      <article>
-        <h3>Example</h3>
-        <pre>
-class MegaGreeter
-  def say_hi
-    if @names.nil?
-      puts '...'
-    elsif @names.respond_to?('each')
-      @names.each do |name|
-        puts "Hello #{name}!"
-      end
-    else
-      puts "Hello #{@names}!"
-    end
-  end
-end
-        </pre>
-      </article>
-      
-      <article>
-        <h3>Example</h3>
-        <pre>
-class MegaGreeter
-  def say_bye
-    if @names.nil?
-      puts '...'
-    elsif @names.respond_to?('join')
-      puts "Goodbye #{@names.join(', ')}."
-    else
-      puts "Goodbye #{@names}."
-    end
-  end
-end
-        </pre>
-      </article>
-      
-      <article>
-        <h3>Example</h3>
-        <pre>
-mg = MegaGreeter.new
-mg.say_hi #=> ...
-mg.say_bye #=> ...
-mg.names = 'Ruby'
-mg.say_hi #=> Hello Ruby!
-mg.say_bye #=> Goodbye Ruby.
-mg.names = ['Ruby', 'Rails']
-mg.say_hi
-#=> Hello Ruby!
-#=> Hello Rails!
-mg.say_bye #=> Goodbye Ruby, Rails. 
-        </pre>
-      </article>
-      
-      <article>
         <h3>Method Visibility</h3>
         <pre>
 def my_method; end # private method of Object
@@ -1240,9 +1174,9 @@ end</pre>
         <h3>Method Visibility</h3>
         <pre>
 object = MyClass.new
-object.public_method    # allowed
-object.protected_method # not allowed
-object.private_method   # not allowed
+object.public_method         # allowed
+object.protected_method      # not allowed
+object.private_method        # not allowed
 
 class SubClass < MyClass
   def invoke_protected(object)
@@ -1317,6 +1251,93 @@ c = MyClass.new
 c.hi #=> "Hi Ruby!"
 puts c.greet #=> "Hi Ruby!"
         </pre>
+      </article>
+      
+      <article>
+        <h1>Metaprogramming</h1>
+      </article>
+      
+      <article>
+        <h3>Types, Classes, and Modules</h3>
+        <pre>
+o.class             # class of object o
+
+c.superclass        # superclass of class c
+
+o.instance_of? c    # o.class == c
+
+o.is_a? c           # is o an instance of c, or of any of its subclasses
+
+o.kind_of? c        # o.is_a? c
+
+c === o             # o.is_a? c
+
+o.respond_to? name  # public/protected methods</pre>
+      </article>
+      
+      <article>
+        <h3>Evaluating Code</h3>
+        <pre>
+x= 1
+eval "x + 1" # => 2
+
+Fixnum.instance_eval { def ten; 10; end }
+Fixnum.ten   #=> 10
+
+Fixnum.class_eval { def number; self; end }
+7.number     #=> 7</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+o.methods               # array of public methods
+o.public_methods        # array of public methods
+o.protected_methods     # array of protected methods
+o.private_methods       # array of private methods
+o.singleton_methods     # array of singleton methods
+String.instance_methods #"s".public_methods
+
+def add_method(c, m, &b)
+  c.class_eval {
+    define_method(m, &b)
+  }
+end
+add_method(String, :greet) { "Hello, " + self }
+"world".greet   # => "Hello, world"</pre>
+      </article>
+      
+      <article>
+        <h3>Hooks</h3>
+        <pre>
+module Final
+  def self.included(c)
+    c.instance_eval do
+      def inherited(sub)
+        raise Exception, "Attempt to create subclass #{sub} of Final class #{self}"
+      end
+    end
+  end
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Missing Methods</h3>
+        <pre>
+class Roman
+  def roman_to_i(string)
+    # ...
+  end
+  def method_missing(method_id)
+    name = method_id.id_to_name
+    roman_to_i(name)
+  end
+end
+
+r = Roman.new
+r.iv      #=> 4
+r.xxiii   #=> 23
+r.mm      #=> 2000</pre>
       </article>
       
       <article>

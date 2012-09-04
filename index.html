@@ -952,18 +952,19 @@ puts doubler.call([1,2,3])  # Prints 2,4,6</pre>
       <article>
         <h3>Closures</h3>
         <pre>
-# Return a pair of lambdas that share access to a local variable.
-def accessor_pair(initialValue=nil)
-  value = initialValue  # shared by lambdas.
-  getter = lambda { value }  # Return value of local variable.
-  setter = lambda { |x| value = x }  # Change value of local variable.
-  return getter, setter # Return pair of lambdas.
+def accessor_pair(initial_value=nil)
+  value = initial_value
+  # Return the value of local variable.
+  getter = lambda { value }
+  # Change the value of local variable.
+  setter = lambda { |x| value = x }
+  return getter, setter
 end
 
-getX, setX = accessor_pair(0)
-puts getX[] # Prints 0.
-setX[10]    # setX.call(10)
-puts getX[] # Prints 10.</pre>
+get_x, set_x = accessor_pair(0)
+puts get_x[] # Prints 0.
+set_x[10]    # set_x.call(10)
+puts get_x[] # Prints 10.</pre>
       </article>
       
       <article>

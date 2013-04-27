@@ -12,7 +12,7 @@
 -->
 <html>
   <head>
-    <title>Introduction to Ruby</title>
+    <title>Ruby Programming</title>
     <meta charset='utf-8'>
     <script src='slides.js'></script>
   </head>
@@ -25,7 +25,7 @@
       
       <article>
         <img src="images/ruby-logo.png" class="small" />
-        <h1>Introduction to Ruby</h1>
+        <h1>Ruby Programming</h1>
         <address>
           <div class="author_name">Hatem Mahmoud</div>
           <div>ExpressionLab.com</div>
@@ -34,39 +34,35 @@
       
       <article>
         <h3>Prerequisites</h3>
-        <p>Participants should have experience with<br /> object-oriented programming</p>
+        <p>Some experience with<br /> object-oriented programming</p>
       </article>
       
       <article>
         <h3>Outline</h3>
-        <ul style="float: left; width: 400px;">
-          <li>History</li>
-          <li>Philosophy</li>
-          <li>Features</li>
-          <li>Implementations</li>
-          <li>Installation</li>
-          <li>Hello, World!</li>
-          <li>Datatypes</li>
-        </ul>
         <ul>
-          <li>Expressions</li>
+          <li>Introduction</li>
+          <li>Hello, World!</li>
+          <li>Datatypes and Expressions</li>
+          <li>Classes and Modules</li>
           <li>Control Flow</li>
-          <li>Methods</li>
-          <li>Procs</li>
-          <li>Closures</li>
-          <li>Classes</li>
+          <li>Methods, Procs and Closures</li>
           <li>Metaprogramming</li>
+          <li>Resources</li>
         </ul>
       </article>
       
       <article>
-        <h1>History</h1>
+        <h1>Introduction</h1>
       </article>
       
       <article>
         <img src="images/matz.jpg" class="small avatar" />
         <h3>History</h3>
-        <p>Designed by<br /><em>Yukihiro Matsumoto, "Matz"</em><br />Japan, 1993</p>
+        <p>
+          Designed by<br />
+          <strong>Yukihiro Matsumoto, "Matz"</strong><br />
+          Japan, 1993
+        </p>
       </article>
       
       <article>
@@ -83,74 +79,70 @@
       
       <article>
         <h3>History</h3>
-        <p>The current stable version<br /> 1.9.3 released in October, 2011.</p>
+        <p>
+          Current stable release<br />
+          <strong>Ruby 2.0.0</strong><br />
+          February 2013
+        </p>
       </article>
       
       <article>
-        <h1>Philosophy</h1>
-      </article>
-      
-      <article>
-        <h3>Principles</h3>
-        <p>Designed to make programmers happy,<br /> following the principles of<br /> good user interface design</p>
+        <h3>Philosophy</h3>
+        <p>Designed to make programmers happy, following the principles of good user interface design</p>
       </article>
       
       <article>
         <h3>1. Principle of Conciseness</h3>
-        <p>Good servants do a lot of work with short orders</p>
+        <p><em>"Good servants do a lot of work with short orders."</em></p>
       </article>
       
       <article>
         <h3>2. Principle of Least Surprise</h3>
-        <p>Things work the way a programmer would expect them to</p>
+        <p><em>"Things should work the way a programmer would expect them to."</em></p>
       </article>
       
       <article>
         <h3>3. Principle of Flexibility</h3>
-        <p>Languages should express,<br /> not restrict, human thought</p>
+        <p><em>"Languages should express,<br /> not restrict, human thought."</em></p>
       </article>
       
       <article>
-        <h1>Features</h1>
-      </article>
-      
-      <article>
-        <h3>Ruby is...</h3>
-        <p>An open source, dynamic,<br />multi-paradigm, interpreted programming language</p>
-      </article>
-      
-      <article>
-        <h3>Open Source</h3>
-        <p>Dual-licensed under the Ruby License and a BSD License</p>
+        <h3>Features</h3>
+        <ol>
+          <li>Dynamic</li>
+          <li>Multi-paradigm</li>
+          <li>Interpreted</li>
+          <li>Open Source</li>
+        </ol>
       </article>
       
       <article>
         <h3>Dynamic</h3>
-        <p>Class, module and method definitions in a program are built at runtime</p>
+        <p>Class, module and method definitions are built at runtime</p>
       </article>
       
       <article>
-        <h3>Dynamic - Metaprogramming</h3>
+        <h3>Dynamic: Metaprogramming</h3>
         <p>Writing code that<br /> writes code</p>
       </article>
       
       <article>
-        <h3>Dynamic - Monkey Patching</h3>
+        <h3>Dynamic: Monkey Patching</h3>
         <p>Classes are never closed!<br /> You can always add methods to an existing class</p>
       </article>
       
       <article>
-        <h3>Dynamic - Dynamic Typing</h3>
+        <h3>Dynamic: Dynamic Typing</h3>
         <p>Type checking is performed at runtime</p>
       </article>
       
       <article>
-        <h3>Dynamic - Duck Typing</h3>
+        <h3>Dynamic: Duck Typing</h3>
         <p>An object's current set of methods and attributes determines the valid semantics</p>
       </article>
       
       <article>
-        <h3>Dynamic - Duck Typing</h3>
+        <h3>Dynamic: Duck Typing</h3>
         <q>If it walks like a duck<br /> and quacks like a duck,<br /> it must be a duck!</q>
       </article>
       
@@ -160,38 +152,45 @@
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Object-Oriented</h3>
-        <p>Every value is an object:<br /> classes, numbers, strings, true, false, nil</p>
+        <h3>Multi-Paradigm: Object-Oriented</h3>
+        <p>Every value is an object:<br />
+          classes, numbers, strings,<br />
+          <code>true</code>, <code>false</code>, <code>nil</code></p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Object-Oriented</h3>
+        <h3>Multi-Paradigm: Object-Oriented</h3>
         <p>Every object has a <strong>class</strong> and every class has one <strong>superclass</strong></p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Object-Oriented</h3>
+        <h3>Multi-Paradigm: Object-Oriented</h3>
         <p><code>Object</code> is the root of the class hierarchy</p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Procedural</h3>
+        <h3>Multi-Paradigm: Procedural</h3>
         <p>Methods defined outside classes become members of the <code>Object</code> class</p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Functional</h3>
+        <h3>Multi-Paradigm: Functional</h3>
         <p>Ruby supports<br /> anonymous functions and closures using <strong>blocks</strong></p>
       </article>
       
       <article>
-        <h3>Multi-Paradigm - Reflective</h3>
+        <h3>Multi-Paradigm: Reflective</h3>
         <p>A program can observe its own structure and behavior at runtime</p>
       </article>
       
       <article>
         <h3>Interpreted</h3>
         <p>Ruby interpreter examines the source code and executes it on the fly</p>
+      </article>
+      
+      <article>
+        <h3>Open Source</h3>
+        <p>Dual-licensed under<br /> Ruby License and BSD License</p>
       </article>
       
       <article>
@@ -238,8 +237,8 @@
         <h3>Ruby Version</h3>
         <pre>
 $ ruby -v
-ruby 1.9.3p0 (2011-10-30 revision 33570)
-[x86_64-darwin11.0.0]
+
+ruby 2.0.0p0 (2013-02-24 revision 39474) [x86_64-darwin12.2.0]
         </pre>
       </article>
       
@@ -285,7 +284,7 @@ $</pre>
       </article>
       
       <article>
-        <h1>Datatypes</h1>
+        <h1>Datatypes and Expressions</h1>
       </article>
       
       <article>
@@ -433,7 +432,7 @@ puts 'Ruby on Rails'[/on.*/]
       </article>
       
       <article>
-        <h3>True, False, Nil</h3>
+        <h3><code>true</code>, <code>false</code>, <code>nil</code></h3>
         <pre>
 true.class  #=> TrueClass (a singleton instance)
 
@@ -444,11 +443,7 @@ nil.class   #=> NilClass (a singleton instance)
       </article>
       
       <article>
-        <h1>Expressions</h1>
-      </article>
-      
-      <article>
-        <h3>Identifiers</h3>
+        <h3>Expressions: Identifiers</h3>
         <pre>
 PI              # Constant
 
@@ -467,7 +462,7 @@ timeout=        # Method invoked by assignment
       </article>
       
       <article>
-        <h3>Assignments</h3>
+        <h3>Expressions: Assignments</h3>
         <pre>
 x = 1         # Simple assignment
 
@@ -485,7 +480,7 @@ N = 2         # Warning
       </article>
       
       <article>
-        <h3>Operators</h3>
+        <h3>Expressions: Operators</h3>
         <pre>
 2 * Math.sqrt(2) &lt; limit
 
@@ -504,471 +499,7 @@ max = x > y ? x : y # Conditional</pre>
       </article>
       
       <article>
-        <h1>Control Flow</h1>
-      </article>
-      
-      <article>
-        <h3>Conditionals</h3>
-        <section class="build">
-        <pre>
-if x == 1
-  name = "one"
-elsif x == 2 then name = "two"
-elsif x == 3; name = "three"
-else
-  name = "many"
-end</pre>
-        <pre>
-name = if    x == 1 then "one"
-       elsif x == 2 then "two"
-       elsif x == 3 then "three"
-       else              "many"
-       end</pre>
-        </section>
-      </article>
-      
-      <article>
-        <h3>Conditionals</h3>
-        <section class="build">
-        <pre>
-if x < 10 then x += 1 end</pre>
-        <pre>
-y = x.invert if x.respond_to? :invert</pre>
-        <pre>
-puts message if message and defined? puts</pre>
-        <pre>
-unless x == 0
-   puts "x is not 0"
- else
-   puts "x is 0"
-end</pre>
-        <pre>
-s = o.to_s unless o.nil?</pre>
-        </section>
-      </article>
-      
-      <article>
-        <h3>Conditionals</h3>
-        <section class="build">
-        <pre>
-n = m==1 ? 10 : 20</pre>
-        <pre>
-tax = case income
-      when nil, [], "", 0
-        0
-      when 0..9
-        income * 0.1
-      when 10
-        income * 0.2
-      else
-        income * 0.3
-      end</pre>
-        </section>
-      </article>
-      
-      <article>
-        <h3>Loops</h3>
-        <section class="build">
-        <pre>
-while x >= 0 do
-  puts x
-  x -= 1
-end</pre>
-        <pre>
-until x > 10 do
-  puts x
-  x += 1
-end</pre>
-<pre>
-puts x += 1 while x < 10</pre>
-<pre>
-a = [1,2,3]
-puts a.pop until a.empty?</pre>
-        </section>
-      </article>
-      
-      <article>
-        <h3>Loops</h3>
-        <section class="build">
-        <pre>
-array = [1,2,3,4,5]
-for element in array
-  puts element
-end</pre>
-        <pre>
-hash = {:a=>1, :b=>2, :c=>3}
-for key,value in hash
-  puts "#{key} is #{value}"
-end</pre>
-        </section>
-      </article>
-      
-      <article>
-        <h3>Iterators</h3>
-        <section class="build">
-        <pre>
-3.times { puts 'Ruby' }
-data.each { |x| puts x }
-[1,2,3].map { |x| x*x  }
-(1..3).each  { |x| print x }
-     
-n, factorial = 5, 1
-2.upto(n) { |x| factorial *= x }</pre>
-        <pre>
-File.open(filename) do |f|
-  f.each_with_index do |line, index|
-    print "#{index}: #{line}"
-  end
-end</pre>
-        </section>
-      </article>
-      
-      <article>
-        <h3>Iterators</h3>
-        <img src="images/iterator.png" class="xlarge" />
-      </article>
-      
-      <article>
-        <h3>Iterators</h3>
-        <pre>
-# An iterator is a method that expects a block
-def sequence(n, x)
-  i = 0
-  while(i < n)
-    yield x*i
-    i += 1
-  end
-end
-
-sequence(3, 5) { |e| puts e }
-#=>  0
-#=>  5
-#=>  10</pre>
-      </article>
-      
-      <article>
-        <h3>Blocks</h3>
-        <pre>
-1.upto(10) { |x| puts x }
-
-1.upto(10) do |x|
-  puts x 
-end</pre>
-        <pre>
-sum = 0
-data.each { |x| sum += x }
-puts sum</pre>
-      </article>
-      
-      <article>
-        <h3>Altering Control Flow</h3>
-        <pre>
-def square(x)
-  return nil if x == nil
-  return x*2
-end</pre>
-        <pre>
-while(line = gets.chop)
-  break if line == "quit"
-  puts eval(line)
-end</pre>
-        <pre>
-while(line = gets.chop)
-  next if line[0,1] == "#"
-  puts eval(line)
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Altering Control Flow</h3>
-        <pre>
-i = 0
-while(i < 3) # Prints "0123" instead of "012"
-  print i
-  i += 1
-  redo if i == 3
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Altering Control Flow</h3>
-        <pre>
-for matrix in data do
-  catch :missing_data do # Labeled block
-    for row in matrix do
-      for value in row do
-        throw :missing_data unless value # Break out of two nested loops
-      end
-    end
-  end
-  # We also get here if :missing_data is thrown
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Exceptions</h3>
-        <pre>
-begin
-  eval my_string
-rescue SyntaxError, NameError => e
-  puts "String doesn't compile: " + e
-end
-
-begin  
-  puts 'I am before the raise.'  
-  raise 'An error has occured!'  
-rescue  
-  puts 'I am rescued.'  
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Exceptions</h3>
-        <pre>
-tries = 0
-f = File.open(filename)
-begin
-  tries += 1
-  puts f.readline
-rescue => e
-  puts "#{e.class}: #{e.message}"
-  if (tries < 3)
-    sleep(2**tries)
-    retry
-  end
-else
-  puts "Done. No exceptions."
-ensure
-  f.close unless f.nil?
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Threads</h3>
-        <pre>
-def readfiles(filenames)
-  threads = filenames.map do |f|
-    Thread.new { File.read(f) }
-  end
-  threads.map { |t| t.value }
-  # blocks until the thread exits with a value.
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Fibers</h3>
-        <pre>
-f = Fiber.new {        # Line  1: a new fiber
-  puts "Fiber Hello"   # Line  2:
-  Fiber.yield          # Line  3: goto line 9
-  puts "Fiber Goodbye" # Line  4:
-}                      # Line  5: goto line 11
-                       # Line  6:
-puts "Caller Hello"    # Line  7:
-f.resume               # Line  8: goto line 2
-puts "Caller Goodbye"  # Line  9:
-f.resume               # Line 10: goto line 4</pre>
-        <pre>
-#=> Caller Hello
-#=> Fiber Hello
-#=> Caller Goodbye
-#=> Fiber Goodbye</pre>
-      </article>
-      
-      <article>
-        <h1>Methods</h1>
-      </article>
-      
-      <article>
-        <h3>Methods</h3>
-        <pre>
-def sum x, y
-  x + y
-end
-
-x.between? 1, 5 # x.between?(1, 5)
-
-def max(first, *rest)
-  max = first
-  rest.each { |x| max = x if x > max }
-  max
-end
-
-def append(x, a=[])
-  a << x
-end</pre>
-      </article>
-      
-      <article>
-        <h3>Methods</h3>
-        <pre>
-m = "message"
-def m.printme # Singleton method
-  puts self
-end
-m.printme     # message</pre>
-        <pre>
-def hello
-  puts "Hello World"
-end
-alias greeting hello</pre>
-      </article>
-      
-      <article>
-        <h3>Methods</h3>
-        <pre>
-def factorial(n)
-  raise "bad argument" if n < 1
-  return 1 if n == 1
-  n * factorial(n-1)
-end
-
-def split_string(string)
-  splitted = string.split(' ')
-  return splitted[0], splitted[1]
-end
-fname, lname = split_string('Hatem Mahmoud')</pre>
-      </article>
-      
-      <article>
-        <h3>Methods</h3>
-        <pre>
-def sequence(n, x)
-  i = 0
-  while(i < n)
-    yield x*i # Pass next element to the block
-    i += 1
-  end
-end
-
-sequence(3, 5) { |e| puts e }
-</pre>
-      </article>
-      
-      <article>
-        <h3>Methods</h3>
-        <pre>
-# Explicit argument to get block as a Proc
-def sequence(n, x, &b)
-  i = 0
-  while(i < n)
-    b.call x*i # Invoke the Proc
-    i += 1
-  end
-end
-
-sequence(3, 5) { |e| puts e }</pre>
-      </article>
-      
-      <article>
-        <h3>Methods</h3>
-        <pre>
-def sequence(n, x, b)
-i = 0
-  while(i < n)
-    b.call x*i # Invoke the Proc
-    i += 1
-  end
-end
-
-p = Proc.new { |x| puts x }
-sequence(3, 5, p) # Explicitly pass a Proc object</pre>
-      </article>
-      
-      <article>
-        <h1>Procs</h1>
-      </article>
-      
-      <article>
-        <h3>Procs</h3>
-        <pre>
-# A proc is the object form of a block
-adder = Proc.new { |x,y| x+y }
-sum = adder.call(2, 3)</pre>
-        <pre>
-def makeproc(&p)
-  p # block converted to a Proc may be passed around
-end
-adder = makeproc { |x,y| x+y }
-sum = adder.call(2, 3)</pre>
-        <pre>
-# Create a Proc using Kernel.lambda
-adder = lambda { |x,y| x+y }
-sum = adder.call(2, 3)</pre>
-      </article>
-      
-      <article>
-        <h3>Procs</h3>
-        <pre>
-# A proc behaves like a block
-p = Proc.new { |x,y| print x,y }
-p.call(3) # x,y = 1</pre>
-        <pre>
-# A lambda behaves like a method
-l = lambda { |x,y| print x,y }
-l.call(3) # wrong number of arguments</pre>
-      </article>
-      
-      <article>
-        <h3>Procs</h3>
-        <pre>
-# A proc behaves like a block
-def test
-  p = Proc.new { puts "entering proc"; return }
-  p.call
-  puts "exiting method"  # This is never executed
-end</pre>
-        <pre>
-# A lambda behaves like a method
-def test
-  p = lambda { puts "entering lambda"; return }
-  p.call
-  puts "exiting method"  # This is executed now
-end</pre>
-      </article>
-      
-      <article>
-        <h1>Closures</h1>
-      </article>
-      
-      <article>
-        <h3>Closures</h3>
-        <pre>
-# blocks can use variables defined outside
-def multiply(data, n)
-  data.collect { |x| x*n }
-end
-puts multiply([1,2,3], 2)   # Prints 2,4,6</pre>
-        <pre>
-# a closure, proc or lambda, holds the block
-# and bindings for all the variables used by it
-def multiplier(n)
-  lambda { |data| data.collect { |x| x*n } }
-end
-doubler = multiplier(2)
-puts doubler.call([1,2,3])  # Prints 2,4,6</pre>
-      </article>
-      
-      <article>
-        <h3>Closures</h3>
-        <pre>
-def accessor_pair(initial_value=nil)
-  value = initial_value
-  # Return the value of local variable.
-  getter = lambda { value }
-  # Change the value of local variable.
-  setter = lambda { |x| value = x }
-  return getter, setter
-end
-
-get_x, set_x = accessor_pair(0)
-puts get_x[] # Prints 0.
-set_x[10]    # set_x.call(10)
-puts get_x[] # Prints 10.</pre>
-      </article>
-      
-      <article>
-        <h1>Classes</h1>
+        <h1>Classes and Modules</h1>
       </article>
       
       <article>
@@ -1255,6 +786,462 @@ puts c.greet #=> "Hi Ruby!"
       </article>
       
       <article>
+        <h1>Control Flow</h1>
+      </article>
+      
+      <article>
+        <h3>Conditionals</h3>
+        <section class="build">
+        <pre>
+if x == 1
+  name = "one"
+elsif x == 2 then name = "two"
+elsif x == 3; name = "three"
+else
+  name = "many"
+end</pre>
+        <pre>
+name = if    x == 1 then "one"
+       elsif x == 2 then "two"
+       elsif x == 3 then "three"
+       else              "many"
+       end</pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Conditionals</h3>
+        <section class="build">
+        <pre>
+if x < 10 then x += 1 end</pre>
+        <pre>
+y = x.invert if x.respond_to? :invert</pre>
+        <pre>
+puts message if message and defined? puts</pre>
+        <pre>
+unless x == 0
+   puts "x is not 0"
+ else
+   puts "x is 0"
+end</pre>
+        <pre>
+s = o.to_s unless o.nil?</pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Conditionals</h3>
+        <section class="build">
+        <pre>
+n = m==1 ? 10 : 20</pre>
+        <pre>
+tax = case income
+      when nil, [], "", 0
+        0
+      when 0..9
+        income * 0.1
+      when 10
+        income * 0.2
+      else
+        income * 0.3
+      end</pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Loops</h3>
+        <section class="build">
+        <pre>
+while x >= 0 do
+  puts x
+  x -= 1
+end</pre>
+        <pre>
+until x > 10 do
+  puts x
+  x += 1
+end</pre>
+<pre>
+puts x += 1 while x < 10</pre>
+<pre>
+a = [1,2,3]
+puts a.pop until a.empty?</pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Loops</h3>
+        <section class="build">
+        <pre>
+array = [1,2,3,4,5]
+for element in array
+  puts element
+end</pre>
+        <pre>
+hash = {:a=>1, :b=>2, :c=>3}
+for key,value in hash
+  puts "#{key} is #{value}"
+end</pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Iterators</h3>
+        <section class="build">
+        <pre>
+3.times { puts 'Ruby' }
+data.each { |x| puts x }
+[1,2,3].map { |x| x*x  }
+(1..3).each  { |x| print x }
+     
+n, factorial = 5, 1
+2.upto(n) { |x| factorial *= x }</pre>
+        <pre>
+File.open(filename) do |f|
+  f.each_with_index do |line, index|
+    print "#{index}: #{line}"
+  end
+end</pre>
+        </section>
+      </article>
+      
+      <article>
+        <h3>Iterators</h3>
+        <img src="images/iterator.png" class="xlarge" />
+      </article>
+      
+      <article>
+        <h3>Iterators</h3>
+        <pre>
+# An iterator is a method that expects a block
+def sequence(n, x)
+  i = 0
+  while(i < n)
+    yield x*i
+    i += 1
+  end
+end
+
+sequence(3, 5) { |e| puts e }
+#=>  0
+#=>  5
+#=>  10</pre>
+      </article>
+      
+      <article>
+        <h3>Blocks</h3>
+        <pre>
+1.upto(10) { |x| puts x }
+
+1.upto(10) do |x|
+  puts x 
+end</pre>
+        <pre>
+sum = 0
+data.each { |x| sum += x }
+puts sum</pre>
+      </article>
+      
+      <article>
+        <h3>Altering Control Flow</h3>
+        <pre>
+def square(x)
+  return nil if x == nil
+  return x*2
+end</pre>
+        <pre>
+while(line = gets.chop)
+  break if line == "quit"
+  puts eval(line)
+end</pre>
+        <pre>
+while(line = gets.chop)
+  next if line[0,1] == "#"
+  puts eval(line)
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Altering Control Flow</h3>
+        <pre>
+i = 0
+while(i < 3) # Prints "0123" instead of "012"
+  print i
+  i += 1
+  redo if i == 3
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Altering Control Flow</h3>
+        <pre>
+for matrix in data do
+  catch :missing_data do # Labeled block
+    for row in matrix do
+      for value in row do
+        throw :missing_data unless value # Break out of two nested loops
+      end
+    end
+  end
+  # We also get here if :missing_data is thrown
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Exceptions</h3>
+        <pre>
+begin
+  eval my_string
+rescue SyntaxError, NameError => e
+  puts "String doesn't compile: " + e
+end
+
+begin  
+  puts 'I am before the raise.'  
+  raise 'An error has occured!'  
+rescue  
+  puts 'I am rescued.'  
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Exceptions</h3>
+        <pre>
+tries = 0
+f = File.open(filename)
+begin
+  tries += 1
+  puts f.readline
+rescue => e
+  puts "#{e.class}: #{e.message}"
+  if (tries < 3)
+    sleep(2**tries)
+    retry
+  end
+else
+  puts "Done. No exceptions."
+ensure
+  f.close unless f.nil?
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Threads</h3>
+        <pre>
+def readfiles(filenames)
+  threads = filenames.map do |f|
+    Thread.new { File.read(f) }
+  end
+  threads.map { |t| t.value }
+  # blocks until the thread exits with a value.
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Fibers</h3>
+        <pre>
+f = Fiber.new {        # Line  1: a new fiber
+  puts "Fiber Hello"   # Line  2:
+  Fiber.yield          # Line  3: goto line 9
+  puts "Fiber Goodbye" # Line  4:
+}                      # Line  5: goto line 11
+                       # Line  6:
+puts "Caller Hello"    # Line  7:
+f.resume               # Line  8: goto line 2
+puts "Caller Goodbye"  # Line  9:
+f.resume               # Line 10: goto line 4</pre>
+        <pre>
+#=> Caller Hello
+#=> Fiber Hello
+#=> Caller Goodbye
+#=> Fiber Goodbye</pre>
+      </article>
+      
+      <article>
+        <h1>Methods, Procs and Closures</h1>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def sum x, y
+  x + y
+end
+
+x.between? 1, 5 # x.between?(1, 5)
+
+def max(first, *rest)
+  max = first
+  rest.each { |x| max = x if x > max }
+  max
+end
+
+def append(x, a=[])
+  a << x
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+m = "message"
+def m.printme # Singleton method
+  puts self
+end
+m.printme     # message</pre>
+        <pre>
+def hello
+  puts "Hello World"
+end
+alias greeting hello</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def factorial(n)
+  raise "bad argument" if n < 1
+  return 1 if n == 1
+  n * factorial(n-1)
+end
+
+def split_string(string)
+  splitted = string.split(' ')
+  return splitted[0], splitted[1]
+end
+fname, lname = split_string('Hatem Mahmoud')</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def sequence(n, x)
+  i = 0
+  while(i < n)
+    yield x*i # Pass next element to the block
+    i += 1
+  end
+end
+
+sequence(3, 5) { |e| puts e }
+</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+# Explicit argument to get block as a Proc
+def sequence(n, x, &b)
+  i = 0
+  while(i < n)
+    b.call x*i # Invoke the Proc
+    i += 1
+  end
+end
+
+sequence(3, 5) { |e| puts e }</pre>
+      </article>
+      
+      <article>
+        <h3>Methods</h3>
+        <pre>
+def sequence(n, x, b)
+i = 0
+  while(i < n)
+    b.call x*i # Invoke the Proc
+    i += 1
+  end
+end
+
+p = Proc.new { |x| puts x }
+sequence(3, 5, p) # Explicitly pass a Proc object</pre>
+      </article>
+      
+      <article>
+        <h3>Procs</h3>
+        <pre>
+# A proc is the object form of a block
+adder = Proc.new { |x,y| x+y }
+sum = adder.call(2, 3)</pre>
+        <pre>
+def makeproc(&p)
+  p # block converted to a Proc may be passed around
+end
+adder = makeproc { |x,y| x+y }
+sum = adder.call(2, 3)</pre>
+        <pre>
+# Create a Proc using Kernel.lambda
+adder = lambda { |x,y| x+y }
+sum = adder.call(2, 3)</pre>
+      </article>
+      
+      <article>
+        <h3>Procs</h3>
+        <pre>
+# A proc behaves like a block
+p = Proc.new { |x,y| print x,y }
+p.call(3) # x,y = 1</pre>
+        <pre>
+# A lambda behaves like a method
+l = lambda { |x,y| print x,y }
+l.call(3) # wrong number of arguments</pre>
+      </article>
+      
+      <article>
+        <h3>Procs</h3>
+        <pre>
+# A proc behaves like a block
+def test
+  p = Proc.new { puts "entering proc"; return }
+  p.call
+  puts "exiting method"  # This is never executed
+end</pre>
+        <pre>
+# A lambda behaves like a method
+def test
+  p = lambda { puts "entering lambda"; return }
+  p.call
+  puts "exiting method"  # This is executed now
+end</pre>
+      </article>
+      
+      <article>
+        <h3>Closures</h3>
+        <pre>
+# blocks can use variables defined outside
+def multiply(data, n)
+  data.collect { |x| x*n }
+end
+puts multiply([1,2,3], 2)   # Prints 2,4,6</pre>
+        <pre>
+# a closure, proc or lambda, holds the block
+# and bindings for all the variables used by it
+def multiplier(n)
+  lambda { |data| data.collect { |x| x*n } }
+end
+doubler = multiplier(2)
+puts doubler.call([1,2,3])  # Prints 2,4,6</pre>
+      </article>
+      
+      <article>
+        <h3>Closures</h3>
+        <pre>
+def accessor_pair(initial_value=nil)
+  value = initial_value
+  # Return the value of local variable.
+  getter = lambda { value }
+  # Change the value of local variable.
+  setter = lambda { |x| value = x }
+  return getter, setter
+end
+
+get_x, set_x = accessor_pair(0)
+puts get_x[] # Prints 0.
+set_x[10]    # set_x.call(10)
+puts get_x[] # Prints 10.</pre>
+      </article>
+      
+      <article>
         <h1>Metaprogramming</h1>
       </article>
       
@@ -1363,6 +1350,10 @@ end</pre>
       </article>
       
       <article>
+        <h1>Resources</h1>
+      </article>
+      
+      <article>
         <h1>RubyGems</h1>
       </article>
       
@@ -1455,15 +1446,6 @@ end</pre>
       </article>
       
       <article>
-        <h1>Job Trends</h1>
-      </article>
-      
-      <article>
-        <h3>Job Trends</h3>
-        <img src="images/job-trends.png" class="xlarge" style="margin-top: 30px; height: 80%;" />
-      </article>
-      
-      <article>
         <h1>Resources</h1>
       </article>
       
@@ -1506,7 +1488,7 @@ end</pre>
       <article>
         <h3>Assignment #1</h3>
         <ol>
-          <li>Install Ruby 1.9</li>
+          <li>Install Ruby</li>
           <li>Write a "Hello, world!" program</li>
           <li>Finish the TryRuby.org tutorial</li>
         </ol>
